@@ -20,6 +20,7 @@ post '/login' do
     given_password = params[:password]
     if user.password == given_password
         session[:user_id] = user.id
+        $loged = true
         redirect '/profile'
     else
         flash[:error] = "Correct email but wrong password. did you mean #{user.password}
@@ -32,19 +33,29 @@ end
 
 # ***************************************
 get '/signup' do
+  if $loged == true
+       redirect '/profile'
+  else
     erb :signup
+  end
 end
 
 post '/signup' do
     p params
     @user = User.new(params[:user])
+    p @user.valid?
     if @user.valid?
+      $loged = true
         @user.save
-        redirect '/profile'
+        redirect '/aftersignup'
     else
         flash[:errors] = @user.errors.full_messages
         redirect '/signup'
     end
+end
+
+get '/aftersignup' do
+erb :aftersignup
 end
 
 get '/profile' do
