@@ -4,7 +4,7 @@ require 'sinatra/flash'
 require './models'
 
 set :port, 3000
-set :database, {adapter: "sqlite3", database: "doggly.sqlite3"}
+set :database, {adapter: "sqlite3", database: "tumblr.sqlite3"}
 enable :sessions
 
 get '/' do
