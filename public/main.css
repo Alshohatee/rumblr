@@ -1,4 +1,16 @@
 body {
   margin: 0;
-  background-color: red;
+  color: white;
+  background-color: #001935;
+}
+.center {
+  margin: auto;
+  width: 25%;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+input, form , h1{
+  text-align: center;
+  align-items: center;
 }
