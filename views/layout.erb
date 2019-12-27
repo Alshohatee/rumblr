@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul>
+    <li><a id="<%=@pageTitle2 %>" class="home"  href="/">Home</a></li>
 
-<%= yield %>
-<script src = "main.js">
+    <% if !session[:user_id] %>
+    <li><a class="ll"  href="login">log in</a></li>
+    <li><a id="<%= @pageTitle %>" class="home"  href="signup">signup</a></li>
 
-</script>
-  </body>
+    <% elsif session[:user_id] %>
+    <li><a id="<%= @pageTitle %>" class="logout" href="logout">log out</a></li>
+    <% end %>
+
+    <li><a id="<%= @pageTitle %>" class="home"  href="dashboard">Dashboard</a></li>
+    <% if request.path == '/dashboard' %>
+    <li>
+      <button id="myBtn"><img src="https://cdn1.iconfinder.com/data/icons/action-states-vol-4-twotone/48/JD-03-512.png">Create Post</button>
+    </li>
+    <% end %>
+
+  </ul>
+  <%= yield %>
+  <script src = "main.js">
+
+  </script>
+</body>
 </html>

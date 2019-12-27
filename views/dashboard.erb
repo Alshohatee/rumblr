@@ -1,0 +1,34 @@
+
+
+<!-- creating a post -->
+<div id="create-post" class="creating-post-box ">
+  <div class="post-holder">
+    <form action="/dashboard" method="post">
+      <div class="post-header">
+        <span class="close-btn">&times;</span>
+        <label><b>Title</b></label>
+        <input  class="post-input-title" type="text" placeholder="Enter title for post" name="title">
+      </div>
+      <div class="post-body">
+        <label><b>Content</b></label>
+        <input class="post-input-content"id="content" type="text" placeholder="Enter content of post" name="content">
+      </div>
+      <div class="post-btn-footer">
+        <input type="submit" value="Create your post">
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- post generator -->
+<div id="post-container">
+  <% if  @posts != nil%>
+  <% for post in @posts.reverse %>
+  <div class="post">
+    <p id="post-maker"> <%= post.maker %></p>
+    <h1><%= post.title %></h1>
+    <p><%= post.content %></p>
+  </div>
+  <% end %>
+  <% end %>
+</div>

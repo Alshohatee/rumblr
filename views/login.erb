@@ -3,8 +3,11 @@
 <% end %>
 <h1>tumblr</h1>
 <h1  class ="center" >Login</h1>
-<form  class ="center" action='/login' method='post'>
+<form  class ="center myForm" action='/login' method='post'>
     <input name= "email" type= "email" placeholder= "email"><br>
     <input name= "password" type= "password" placeholder= "password"><br>
     <input type= "submit" value= "submit">
+    <% if @mes!=nil %>
+     <%= @mes %>
+     <%end %>
 </form>
