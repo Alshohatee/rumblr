@@ -155,3 +155,16 @@ height:70%;
   background-color: #b2b2ff;
 text-align: center;
 }
+#delete-button{
+  margin-left: 50%;
+  z-right: 50%;
+}
+
+/* user profile */
+.user-info{
+background: black;
+padding-left: 25%;
+
+padding-right: 25%;
+width:50%;
+}

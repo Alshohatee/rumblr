@@ -105,7 +105,9 @@ def mail_Func
   end
 
   get '/profile' do
-    @pageTitle = "aftersignup"
+      @user = User.find_by(id: session[:user_id])
+
+  @posts = Post.all
     erb :profile
   end
 
@@ -145,3 +147,24 @@ def mail_Func
     @post.save
     redirect "/dashboard"
   end
+  post "/delete" do
+  user = User.find_by(id: session[:user])
+  user.destroy
+  session.clear
+  redirect "/terminated"
+end
+# delete a post
+post "/profile/:title" do
+s = params['title'].to_s
+s.slice! ":"
+post = Post.find_by(id: s.to_i)
+post.destroy
+
+redirect "/profile"
+end
+post "/delete-user" do
+user = User.find_by(id: session[:user_id])
+user.destroy
+  session.clear
+redirect "/"
+end
