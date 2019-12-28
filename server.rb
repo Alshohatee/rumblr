@@ -84,7 +84,7 @@ def mail_Func
   post '/signup' do
     @aseel = "yes"
     @pageTitle = "signup"
-    p params
+    # p params
     user = User.new(params[:user])
     @name = user.name
     puts "name #{user.name}"
