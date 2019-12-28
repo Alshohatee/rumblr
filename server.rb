@@ -56,7 +56,7 @@ def mail_Func
       if user.password == given_password
         session[:user_id] = user.id
         puts "asdfasdf #{session[:user_id]}"
-         @pageTitle2 = "yes"
+        @pageTitle2 = "yes"
         redirect '/profile'
       else
         flash[:error] = "Correct email but wrong password."
@@ -72,7 +72,7 @@ def mail_Func
 
   # ***************************************
   get '/signup' do
-        @aseel = "yes"
+    @aseel = "yes"
     @pageTitle = "signup"
     if session[:user_id]
       redirect "/profile"
@@ -82,7 +82,7 @@ def mail_Func
   end
 
   post '/signup' do
-        @aseel = "yes"
+    @aseel = "yes"
     @pageTitle = "signup"
     p params
     user = User.new(params[:user])
@@ -99,21 +99,21 @@ def mail_Func
   end
 
   get '/aftersignup' do
-        @aseel = "yes"
+    @aseel = "yes"
     @pageTitle = "aftersignup"
     erb :aftersignup
   end
 
   get '/profile' do
-      @user = User.find_by(id: session[:user_id])
+    @user = User.find_by(id: session[:user_id])
 
-  @posts = Post.all
+    @posts = Post.all
     erb :profile
   end
 
   #************************************
   get "/logout" do
-      @aseel = "yes"
+    @aseel = "yes"
 
     session.clear
     redirect "/"
@@ -137,7 +137,6 @@ def mail_Func
     end
   end
 
-
   post "/dashboard" do
     user = User.find_by(id: session[:user_id])
     puts "sdfasdgagdasdfasdfa#{user.name}"
@@ -148,23 +147,24 @@ def mail_Func
     redirect "/dashboard"
   end
   post "/delete" do
-  user = User.find_by(id: session[:user])
-  user.destroy
-  session.clear
-  redirect "/terminated"
-end
-# delete a post
-post "/profile/:title" do
-s = params['title'].to_s
-s.slice! ":"
-post = Post.find_by(id: s.to_i)
-post.destroy
+    user = User.find_by(id: session[:user])
+    user.destroy
+    session.clear
+    redirect "/terminated"
+  end
+  # delete a post
+  post "/profile/:title" do
+    s = params['title'].to_s
+    s.slice! ":"
+    post = Post.find_by(id: s.to_i)
+    post.destroy
 
-redirect "/profile"
-end
-post "/delete-user" do
-user = User.find_by(id: session[:user_id])
-user.destroy
-  session.clear
-redirect "/"
-end
+    redirect "/profile"
+  end
+
+  post "/delete-user" do
+    user = User.find_by(id: session[:user_id])
+    user.destroy
+    session.clear
+    redirect "/"
+  end
