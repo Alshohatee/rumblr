@@ -7,14 +7,15 @@ require 'sinatra/reloader' if development?
 set :port, 3000
 set :database, {adapter: "sqlite3", database: "database1.sqlite3"}
 enable :sessions
-
+$correctCode = false
 puts   @pageTitle2
-def mail_Func
+def mail_Func(random_Num, emialofuser)
   Pony.mail({
     :from => "params[:name]",
-    :to => ENV["TO_EMAIL"],
+    #  :to => emialofuser,
+    :to => "alshohateeaseel@gmail.com",
     :subject => "params[:name]" + "has contacted you via the Website",
-    :body => "params[:comment]",
+    :body => " Your code#{random_Num}",
     :via => :smtp,
     :via_options => {
       :address              => 'smtp.gmail.com',
@@ -27,7 +28,7 @@ def mail_Func
     }
     })
   end
-  # mail_Func()
+  # mail_Func(random_Num)
 
   get '/' do
     if session[:user_id]
@@ -52,11 +53,11 @@ def mail_Func
     @@email = params[:email]
     user = User.find_by(email: params[:email])
     given_password = params[:password]
-    if given_password != ""
+    puts "12312312312323332324#{user.nil?}"
+    if  !user.nil?
       if user.password == given_password
         session[:user_id] = user.id
-        puts "asdfasdf #{session[:user_id]}"
-        @pageTitle2 = "yes"
+
         redirect '/profile'
       else
         flash[:error] = "Correct email but wrong password."
@@ -68,8 +69,6 @@ def mail_Func
     end
   end
 
-
-
   # ***************************************
   get '/signup' do
     @aseel = "yes"
@@ -79,25 +78,43 @@ def mail_Func
     else
       erb :signup
     end
+
   end
 
   post '/signup' do
     @aseel = "yes"
     @pageTitle = "signup"
-    # p params
-    user = User.new(params[:user])
-    @name = user.name
-    puts "name #{user.name}"
-    p !user.valid?
-    if user.valid?
-      user.save
-      redirect '/aftersignup'
+    $user = User.new(params[:user])
+    @name = $user.name
+    if $user.valid?
+      emialofuser = $user.email
+      $random_Num = rand.to_s[2..15]
+      mail_Func($random_Num, emialofuser)
+      redirect '/variationCode'
     else
-      flash[:errors] = user.errors.full_messages
+      flash[:errors] = $user.errors.full_messages
       redirect '/signup'
     end
   end
 
+# ***********variationCode
+  get '/variationCode' do
+    @pageTitle = "variationCode"
+    erb :variationCode
+  end
+
+  post '/variationCode' do
+    if $random_Num  == params[:code]
+      puts "$random_Num  == params[:code]"
+       $user.save
+       $user = nil
+      redirect '/aftersignup'
+    else
+        puts "$random_Num  =! params[:code]"
+      redirect '/signup'
+    end
+  end
+# ************** aftersignup
   get '/aftersignup' do
     @aseel = "yes"
     @pageTitle = "aftersignup"
@@ -106,7 +123,6 @@ def mail_Func
 
   get '/profile' do
     @user = User.find_by(id: session[:user_id])
-
     @posts = Post.all
     erb :profile
   end
