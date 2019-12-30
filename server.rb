@@ -9,6 +9,7 @@ set :database, {adapter: "sqlite3", database: "database1.sqlite3"}
 enable :sessions
 $correctCode = false
 puts   @pageTitle2
+
 def mail_Func(random_Num, emialofuser)
   Pony.mail({
     :from => "params[:name]",
@@ -49,7 +50,7 @@ def mail_Func(random_Num, emialofuser)
   end
 
   post '/login' do
-    @aseel = "yes"
+# puts "dsfgasdfsdfasdfasdf#{user.authenticate(params[:password])}"
     @@email = params[:email]
     user = User.find_by(email: params[:email])
     given_password = params[:password]
@@ -85,7 +86,7 @@ def mail_Func(random_Num, emialofuser)
     @aseel = "yes"
     @pageTitle = "signup"
     $user = User.new(params[:user])
-    @name = $user.name
+
     if $user.valid?
       emialofuser = $user.email
       $random_Num = rand.to_s[2..15]
@@ -155,10 +156,9 @@ def mail_Func(random_Num, emialofuser)
 
   post "/dashboard" do
     user = User.find_by(id: session[:user_id])
-    puts "sdfasdgagdasdfasdfa#{user.name}"
-    @post = Post.new(title: params[:title], content: params[:content], user_id: user.name)
+    @post = Post.new(title: params[:title], content: params[:content], user_id: user.first_name)
     puts  "  buytyctyfctrcyc#{@post}"
-    @post.update(maker: user.name)
+    @post.update(maker: user.first_name)
     @post.save
     redirect "/dashboard"
   end

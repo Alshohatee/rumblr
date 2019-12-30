@@ -3,7 +3,7 @@
 <div id="post-container">
   <div class="user-info">
     <form action="/delete-user" method="post">
-      <h1>Name: <%= @user.name %></h1>
+      <h1>Name: <%= @user.first_name %></h1>
       <h1>Email: <%= @user.email %></h1>
       <h1>Password: <%= @user.password %></h1>
       <button id ="delete-button" type="submit">Delete Profile</button>
@@ -11,7 +11,7 @@
   </div>
   <div id="post-holder">
     <% for post in @posts %>
-    <% if post.maker == @user.name %>
+    <% if post.maker == @user.first_name %>
     <div class="post">
       <form  action="/profile/:<%=post.id%>" method="post">
         <button id="dp" type="submit">Delete Post</button>
