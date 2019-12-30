@@ -41,7 +41,7 @@ def mail_Func(random_Num, emialofuser)
   # ***************************************
 
   get '/login' do
-    @pageTitle = "signup"
+    @pageTitle="login"
     if session[:user_id]
       redirect "/profile"
     else
@@ -51,6 +51,7 @@ def mail_Func(random_Num, emialofuser)
 
   post '/login' do
 # puts "dsfgasdfsdfasdfasdf#{user.authenticate(params[:password])}"
+
     @@email = params[:email]
     user = User.find_by(email: params[:email])
     given_password = params[:password]
@@ -72,7 +73,7 @@ def mail_Func(random_Num, emialofuser)
 
   # ***************************************
   get '/signup' do
-    @aseel = "yes"
+
     @pageTitle = "signup"
     if session[:user_id]
       redirect "/profile"

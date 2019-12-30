@@ -1,14 +1,20 @@
 
-<h1>tumblr</h1>
-<h1  class ="center" >Login</h1>
-<form  class ="center myForm" action='/login' method='post'>
-  <input name= "email" type= "email" placeholder= "email"><br>
-  <input name= "password" type= "password" placeholder= "password"><br>
-  <input type= "submit" value= "submit">
+<h1 class="center">Rumblr</h1>
+
+<div class="login-box">
+  <img  src="login.png">
+  <h1 class= "login-header">Login Here</h1>
+  <form action='/login' method='post'>
+    <p class="login-pargra" >Username</p>
+    <input class="input-login" type="email" name="email" placeholder="Enter Email">
+    <p class="login-pargra">Password</p>
+    <input class="input-login" type="password" name="password" placeholder="Enter Password">
+    <input class="sumbit-btn"type="submit" name="submit">
+  </form>
   <% if @mes!=nil %>
   <%= @mes %>
   <%end %>
   <% if flash[:error] %>
   <%= flash[:error] %>
   <% end %>
-</form>
+</div>
