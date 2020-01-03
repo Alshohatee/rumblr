@@ -53,23 +53,36 @@ li a:hover {
 }
 
 /**********post container ********************/
-#post-maker{
-  float:right;
-  margin-right:2%;
-}
+
 .post-container {
   width: 50%;
   background-color: blue;
   align-items: center;
 }
 .post{
-  background-color: blue;
+  background-color: white;
+  color: black;
   width: 50%;
+  height: 300px;
   margin-right: 25%;
   margin-left: 25%;
 }
+.post h1{
+  text-align: center;
+}
+#post-maker{
+  float:right;
+  margin-right:2%;
+  color: black;
+  background-color: white;
+  height: auto;
 
-
+}
+.post >p{
+  color: white;
+  height: 75%;
+  background-color: blue;
+}
 /**************creating a post box*******************/
 #myBtn {
   width:100px;
