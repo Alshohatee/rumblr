@@ -16,7 +16,7 @@ def mail_Func(random_Num, emialofuser)
     #  :to => emialofuser,
     :to => "alshohateeaseel@gmail.com",
     :subject => "params[:name]" + "has contacted you via the Website",
-    :body => " Your code#{random_Num}",
+    :body => "Your code: #{random_Num}",
     :via => :smtp,
     :via_options => {
       :address              => 'smtp.gmail.com',
@@ -55,7 +55,7 @@ def mail_Func(random_Num, emialofuser)
     @@email = params[:email]
     user = User.find_by(email: params[:email])
     given_password = params[:password]
-    puts "12312312312323332324#{user.nil?}"
+
     if  !user.nil?
       if user.password == given_password
         session[:user_id] = user.id

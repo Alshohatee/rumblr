@@ -248,7 +248,7 @@ li a:hover {
   font-family: 'Ma Shan Zheng', cursive;
   text-transform: uppercase;
   display: block;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 400;
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -267,7 +267,7 @@ li a:hover {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-500px);
   }
   80% {
     transform: translateX(10px);
@@ -281,7 +281,7 @@ li a:hover {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(500px);
   }
   80% {
     transform: translateX(-10px);
