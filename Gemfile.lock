@@ -23,6 +23,7 @@ GEM
     multi_json (1.14.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    pg (1.2.1)
     pony (1.13.1)
       mail (>= 2.0)
     rack (2.0.8)
@@ -47,7 +48,6 @@ GEM
       tilt (~> 2.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
-    sqlite3 (1.4.2)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.6)
@@ -58,13 +58,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg!
   pony (~> 1.6, >= 1.6.1)!
   rake!
   sinatra!
   sinatra-activerecord!
   sinatra-contrib (~> 2.0, >= 2.0.7)!
   sinatra-flash!
-  sqlite3!
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
