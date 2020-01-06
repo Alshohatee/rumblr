@@ -26,6 +26,34 @@ background-image: url(http://hdwpro.com/wp-content/uploads/2018/10/Nice-Galaxy-W
   align-items: center;
 } */
 
+/************nav-profile **********/
+.nav-profile-ul {
+  /* list-style-type: none; */
+  margin-left: 0;
+
+  position: fixed;
+  height: 100%;
+  width: 25%;
+  border: 2px;
+}
+
+.nav-profile {
+width:250px;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.nav-profile:active {
+  background-color: blue;
+  color: white;
+}
+
+.nav-profile:hover {
+  background-color: gery;
+  color: white;
+  weight:400;
+}
 /************nav **********/
 
 ul {
@@ -33,7 +61,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  /* background-color: #333; */
 }
 
 li {
@@ -186,9 +214,8 @@ li a:hover {
 /* user profile */
 .user-info{
   background: black;
-  padding-left: 25%;
-
-  padding-right: 25%;
+  margin-left: 25%;
+  margin-right: 25%;
   width:50%;
 }
 /* home or index */

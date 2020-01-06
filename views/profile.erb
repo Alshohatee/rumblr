@@ -1,7 +1,14 @@
-<h1>profile</h1>
+<h1 class="center">profile</h1>
+
+  <ul class="nav-profile-ul">
+    <li id="user-info-link"class="nav-profile" onclick="showInfoDiv()">Account information</li>
+    <li  id="user-post-link"class="nav-profile"onclick="showPostoDiv()">Posts</li>
+  </ul>
+
+
 
 <div id="post-container">
-  <div class="user-info">
+  <div id="info-holder" class="user-info">
     <form action="/delete-user" method="post">
       <h1>Name: <%= @user.first_name %></h1>
       <h1>Email: <%= @user.email %></h1>
@@ -24,3 +31,22 @@
     <% end %>
   </div>
 </div>
+<script>
+  var postDiv = document.getElementById("post-holder");
+  var infoDiv = document.getElementById("info-holder");
+  postDiv.style.display = "none";
+  infoDiv.style.display = "none";
+
+
+  function showInfoDiv() {
+    infoDiv.style.display = "block";
+    postDiv.style.display = "none";
+
+  }
+
+  function showPostoDiv() {
+    postDiv.style.display = "block";
+    infoDiv.style.display = "none";
+
+  }
+</script>
