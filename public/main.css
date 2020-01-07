@@ -220,7 +220,7 @@ li a:hover {
 }
 /* home or index */
 .header {
-  height: 95vh;
+  height: 50vh;
   background-size: cover;
   background-position: top;
   position: relative;
@@ -233,7 +233,7 @@ li a:hover {
 
 .header-text-box {
   position: absolute;
-  top: 40%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -447,3 +447,123 @@ height: 600px;
     font-size: 18px;
     color: #034c80;
 }
+
+
+
+
+
+/* home styling */
+/* *{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "montserrat";
+}
+body{
+  background: #333;
+} */
+
+.center{
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,40%);
+}
+.center1{
+  position: absolute;
+  top: 20%;
+    /* margin-left: 5%; */
+  left: 20%;
+  transform: translate(-50%,-50%);
+}
+.center2{
+  position: absolute;
+  top: 50%;
+  /* margin-left: 45%; */
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.center3{
+  position: absolute;
+  top: 50%;
+  /* margin-left: 75%; */
+  left: 80%;
+  transform: translate(-50%,-50%);
+}
+.rotatedDiv{
+  cursor: pointer;
+  width: 340px;
+  height: 480px;
+}
+.front,.back{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .6s linear;
+}
+.front img{
+  height: 100%;
+}
+.front{
+  transform: perspective(600px) rotateY(0deg);
+    text-align: center;
+    color: white;
+}
+.back{
+  background: #f1f1f1;
+  transform: perspective(600px) rotateY(180deg);
+}
+.back-content{
+  color: #2c3e50;
+  text-align: center;
+  width: 100%;
+}
+.sm{
+  margin: 20px 0;
+}
+.sm a{
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: #2c3e50;
+  font-size: 18px;
+  transition: 0.4s;
+  border-radius: 50%
+}
+.sm a:hover{
+  background: #2c3e50;
+  color: white;
+}
+.rotatedDiv:hover > .front{
+  transform: perspective(600px) rotateY(-180deg);
+}
+.rotatedDiv:hover > .back{
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.grid-container{
+  position: relative;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / auto;
+  grid-gap: 5px;
+  top: 60%;
+}
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+ }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
