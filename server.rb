@@ -151,7 +151,7 @@ def mail_Func(random_Num, emialofuser)
     @posts = Post.all
     if session[:user_id]
       erb :dashboard
-    else
+    else 
       redirect "/"
     end
   end

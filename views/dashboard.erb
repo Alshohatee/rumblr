@@ -21,12 +21,13 @@
 </div>
 
 <!-- post generator -->
-<div id="post-container">
+<div id="post-container groove">
   <% if  @posts != nil%>
   <% for post in @posts.reverse %>
   <div class="post">
     <p id="post-maker"> <%= post.maker %></p>
     <h1><%= post.title %></h1>
+    <hr>
     <p><%= post.content %></p>
   </div>
   <% end %>
