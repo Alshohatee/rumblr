@@ -9,6 +9,7 @@ body {
 }
 #login, #signup{
 background-image: url(http://hdwpro.com/wp-content/uploads/2018/10/Nice-Galaxy-Wallpaper.jpg);
+background-size: cover;
 }
 :focus {
   outline-color: transparent;
@@ -505,6 +506,9 @@ body{
 }
 .front img{
   height: 100%;
+  width:100%; 
+  opacity: 0.5;
+ filter: alpha(opacity=50);
 }
 .front{
   transform: perspective(600px) rotateY(0deg);
