@@ -10,15 +10,18 @@ body {
 #login, #signup{
 background-image: url(http://hdwpro.com/wp-content/uploads/2018/10/Nice-Galaxy-Wallpaper.jpg);
 background-size: cover;
+/* background-size: contain; */
+  background-repeat: no-repeat;
+  height: 100%
 }
 :focus {
   outline-color: transparent;
   outline-style: none;
 }
-.center {
-  margin: auto;
+.center{
+  margin-top: 20px;
   width: 20%;
-  margin-left: 45%;
+  margin-left: 50%;
   padding: 10px;
 }
 
@@ -28,6 +31,12 @@ background-size: cover;
 } */
 
 /************nav-profile **********/
+.show{
+opacity: 0;
+}
+ul:hover .show{
+opacity: 1;
+}
 .nav-profile-ul {
   /* list-style-type: none; */
   margin-left: 0;
@@ -221,7 +230,7 @@ li a:hover {
 }
 /* home or index */
 .header {
-  height: 50vh;
+  height: 60vh;
   background-size: cover;
   background-position: top;
   position: relative;
@@ -494,7 +503,7 @@ body{
 .rotatedDiv{
   cursor: pointer;
   width: 340px;
-  height: 480px;
+  height: 440px;
 }
 .front,.back{
   width: 100%;
@@ -506,7 +515,7 @@ body{
 }
 .front img{
   height: 100%;
-  width:100%; 
+  width:100%;
   opacity: 0.5;
  filter: alpha(opacity=50);
 }

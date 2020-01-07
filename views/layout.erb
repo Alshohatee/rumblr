@@ -9,18 +9,18 @@
 </head>
 <body id="<%= @pageTitle %>">
   <ul>
-    <li><a id="<%=@pageTitle2 %>" class="home"  href="/">Home</a></li>
+    <li><a id="<%=@pageTitle2 %>" class="home"  href="/"><i class="fas fa-home show"></i> Home</a></li>
 
     <% if !session[:user_id] %>
-    <li><a class="ll"  href="login">log in</a></li>
-    <li><a id="<%= @pageTitle %>" class="home"  href="signup">signup</a></li>
+    <li><a  href="login"><i class="fas fa-sign-in-alt show"></i> log in</a></li>
+    <li><a  class="<%= @pageTitle %> home"  href="signup">signup</a></li>
 
     <% elsif session[:user_id] %>
-    <li><a id="<%= @pageTitle %>" class="logout" href="logout">log out</a></li>
-    <li><a id="<%= @pageTitle %>" class="logout" href="profile">profile</a></li>
+    <li><a id="<%= @pageTitle %>" class="logout" href="logout"><i class="fas fa-sign-out-alt show"></i> log out</a></li>
+    <li><a id="<%= @pageTitle %>" class="logout" href="profile"><i class="fas fa-address-card show"></i> profile</a></li>
     <% end %>
 
-    <li><a id="<%= @pageTitle %>" class="home"  href="dashboard">Dashboard</a></li>
+    <li><a  class="home"  href="dashboard"><i class="fas fa-rss-square show"></i> Dashboard</a></li>
     <% if request.path == '/dashboard' %>
     <li>
       <button id="myBtn"><img src="https://cdn1.iconfinder.com/data/icons/action-states-vol-4-twotone/48/JD-03-512.png">Create Post</button>
