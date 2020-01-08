@@ -198,23 +198,24 @@ def mail_Func(random_Num, emialofuser)
       redirect "/"
     end
     user = User.find_by(id: session[:user_id])
-
-    if params[:user][:first_name]!=nil
+    pp user
+    if params[:user][:first_name]!=""
       user.first_name = params[:user][:first_name]
     end
-    if params[:user][:last_name] !=nil
+    if params[:user][:last_name] !=""
       user.last_name= params[:user][:last_name]
     end
-    if params[:user][:birthday] !=nil
+    if params[:user][:birthday] !=""
       user.birthday= params[:user][:birthday]
     end
-    if params[:user][:email] !=nil
+    if params[:user][:email] !=""
       user.email= params[:user][:email]
     end
-    if params[:user][:password] !=nil
+    if params[:user][:password] !=""
       user.password= params[:user][:password]
     end
     user.save
+    pp user
     redirect "/profile"
 
   end

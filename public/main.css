@@ -53,6 +53,10 @@ width:250px;
   padding: 8px 16px;
   text-decoration: none;
 }
+.nav-profile  a{
+  padding: 0;
+float: left;
+}
 
 .nav-profile:active {
   background-color: blue;
@@ -91,26 +95,28 @@ li a:hover {
 }
 
 /**********post container ********************/
-
 .post-container {
   max-height: 50%;
   width: 50%;
+  margin-top: 50%;
   align-items: center;
   border: 5px black;
 }
 .post{
+  margin-bottom: 25px;
   background-color: #f0f5f9;
   border: 2px solid black;
   color: blue;
   width: 50%;
   height: 300px;
+  /* margin-top: 10%; */
   margin-right: 25%;
   margin-left: 25%;
   border-style: outset;
 
  border: 1px solid;
  padding: 10px;
- box-shadow: 5px 10px #888888;
+ box-shadow: 5px 5px #888888;
 
 }
 .post h1{
@@ -211,14 +217,25 @@ li a:hover {
   height: 200px;
   background-color: #b2b2ff;
   color: white;
-}
+  padding-right: 7px;
+    height: 240px;
+    padding-left: 0px;
 
+}
+.label-title-post{
+  margin-right: 15px;
+}
+.label-Content-post{
+    margin-right:8px;
+}
 .post-input-title{
-  width:75%;
+  margin-top: 20px;
+  width:85%;
   height:80%;
 }
 .post-input-content{
-  width:70%;
+  margin-top: 2%;
+  width:83%;
   height:70%;
 }
 
