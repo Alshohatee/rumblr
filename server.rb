@@ -17,26 +17,26 @@ enable :sessions
 $correctCode = false
 puts   @pageTitle2
 
-def mail_Func(random_Num, emialofuser)
-  Pony.mail({
-    :from => "params[:name]",
-    #  :to => emialofuser,
-    :to => "alshohateeaseel@gmail.com",
-    :subject => "params[:name]" + "has contacted you via the Website",
-    :body => "Your code: #{random_Num}",
-    :via => :smtp,
-    :via_options => {
-      :address              => 'smtp.gmail.com',
-      :port                 => '587',
-      :enable_starttls_auto => true,
-      :user_name            => ENV["MY_EMAIL_USER"],
-      :password             => ENV["MY_EMAIL_PASSWORD"],
-      :authentication       => :plain,
-      :domain               => "localhost.localdomain"
-    }
-    })
-  end
-  # mail_Func(random_Num)
+# def mail_Func(random_Num, emialofuser)
+#   Pony.mail({
+#     :from => "params[:name]",
+#     #  :to => emialofuser,
+#     :to => "alshohateeaseel@gmail.com",
+#     :subject => "params[:name]" + "has contacted you via the Website",
+#     :body => "Your code: #{random_Num}",
+#     :via => :smtp,
+#     :via_options => {
+#       :address              => 'smtp.gmail.com',
+#       :port                 => '587',
+#       :enable_starttls_auto => true,
+#       :user_name            => ENV["MY_EMAIL_USER"],
+#       :password             => ENV["MY_EMAIL_PASSWORD"],
+#       :authentication       => :plain,
+#       :domain               => "localhost.localdomain"
+#     }
+#     })
+#   end
+#   # mail_Func(random_Num)
 
   get '/' do
     if session[:user_id]
