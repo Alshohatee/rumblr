@@ -4,7 +4,7 @@ require 'sinatra/flash'
 require './models'
 require 'pony'
 require 'sinatra/reloader' if development?
-set :port, 3000
+# set :port, 3000
 set :database, {adapter: 'postgresql', database: 'rumblr'}
 # set :database, {adapter: "sqlite3", database: "database1.sqlite3"}
 enable :sessions
