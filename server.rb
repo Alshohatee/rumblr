@@ -151,7 +151,7 @@ def mail_Func(random_Num, emialofuser)
     @posts = Post.all
     if session[:user_id]
       erb :dashboard
-    else 
+    else
       redirect "/"
     end
   end
@@ -185,4 +185,33 @@ def mail_Func(random_Num, emialofuser)
     user.destroy
     session.clear
     redirect "/"
+  end
+  get '/updateUserInfo' do
+    if session[:user_id] == nil
+    redirect "/"
+  end
+    erb :updateUserInfo
+  end
+
+  post '/updateUserInfo' do
+    if session[:user_id] == nil
+      redirect "/"
+    end
+    user = User.find_by(id: session[:user_id])
+
+    if params[:user][:first_name]!=nil
+      user.first_name = params[:user][:first_name]
+
+    elsif params[:user][:last_name] !=nil
+      user.last_name= params[:user][:last_name]
+    elsif params[:user][:birthday] !=nil
+      user.birthday= params[:user][:birthday]
+    elsif params[:user][:email] !=nil
+      user.email= params[:user][:email]
+    elsif params[:user][:password] !=nil
+      user.password= params[:user][:password]
+    end
+    user.save
+    redirect "/profile"
+
   end
