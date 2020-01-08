@@ -201,14 +201,17 @@ def mail_Func(random_Num, emialofuser)
 
     if params[:user][:first_name]!=nil
       user.first_name = params[:user][:first_name]
-
-    elsif params[:user][:last_name] !=nil
+    end
+    if params[:user][:last_name] !=nil
       user.last_name= params[:user][:last_name]
-    elsif params[:user][:birthday] !=nil
+    end
+    if params[:user][:birthday] !=nil
       user.birthday= params[:user][:birthday]
-    elsif params[:user][:email] !=nil
+    end
+    if params[:user][:email] !=nil
       user.email= params[:user][:email]
-    elsif params[:user][:password] !=nil
+    end
+    if params[:user][:password] !=nil
       user.password= params[:user][:password]
     end
     user.save
