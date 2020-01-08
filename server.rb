@@ -98,8 +98,10 @@ puts   @pageTitle2
     if $user.valid?
       emialofuser = $user.email
       $random_Num = rand.to_s[2..15]
-      mail_Func($random_Num, emialofuser)
-      redirect '/variationCode'
+      # mail_Func($random_Num, emialofuser)
+      $user.save
+      session[:user_id] = $user.id
+      redirect '/profile'
     else
       flash[:errors] = $user.errors.full_messages
       redirect '/signup'
