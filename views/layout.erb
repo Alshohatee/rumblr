@@ -8,23 +8,31 @@
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 <body id="<%= @pageTitle %>">
-  <ul>
-    <li><a id="<%=@pageTitle2 %>" class="home"  href="/"><i class="fas fa-home show"></i> Home</a></li>
-
+  <ul class="nav-list">
+    <li><img class="logo"src="logo.png" alt="logo"></li>
     <% if !session[:user_id] %>
-    <li><a  href="login"><i class="fas fa-sign-in-alt show"></i> log in</a></li>
-    <li><a  class="<%= @pageTitle %> home"  href="signup">signup</a></li>
-
-    <% elsif session[:user_id] %>
-    <li><a id="<%= @pageTitle %>" class="logout" href="logout"><i class="fas fa-sign-out-alt show"></i> log out</a></li>
-    <li><a id="<%= @pageTitle %>" class="logout" href="profile"><i class="fas fa-address-card show"></i> profile</a></li>
+    <li><a id="<%=@pageTitle2 %>" class="home"  href="/"><i class="fas fa-home show"></i> Home</a></li>
     <% end %>
 
+
+    <% if session[:user_id] %>
+    <li><a id="<%= @pageTitle %>" class="logout" href="logout"><i class="fas fa-sign-out-alt show"></i> log out</a></li>
+    <li><a id="<%= @pageTitle %>" class="logout" href="profile"><i class="fas fa-address-card show"></i> Profile</a></li>
+    <% end %>
+
+    <% if session[:user_id] %>
     <li><a  class="home"  href="dashboard"><i class="fas fa-rss-square show"></i> Dashboard</a></li>
+
     <% if request.path == '/dashboard' %>
     <li>
-      <button id="myBtn"><img src="https://cdn1.iconfinder.com/data/icons/action-states-vol-4-twotone/48/JD-03-512.png">Create Post</button>
+      <button id="myBtn"><img src="create.png">Create Post</button>
     </li>
+    <% end %>
+    <% end %>
+
+    <% if !session[:user_id] %>
+    <li clase="login-signup"><a  href="login"><i class="fas fa-sign-in-alt show"></i> Log in</a></li>
+    <li clase="login-signup"  ><a  class="<%= @pageTitle %> home"  href="signup"><i class="fas fa-user-plus show"></i>signup</a></li>
     <% end %>
 
   </ul>
