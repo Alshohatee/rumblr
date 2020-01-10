@@ -134,7 +134,17 @@ puts   @pageTitle2
 
   get '/profile' do
     @user = User.find_by(id: session[:user_id])
-    @posts = Post.all
+    # @posts = @user.posts
+
+    @posts = Array.new
+    posts = Post.all
+    for p in posts
+      if p.user_id.to_i ==   @user.id.to_i
+          @posts << p
+
+      end
+    end
+
     erb :profile
   end
 
@@ -166,7 +176,7 @@ puts   @pageTitle2
 
   post "/dashboard" do
     user = User.find_by(id: session[:user_id])
-    @post = Post.new(title: params[:title], content: params[:content], user_id: user.first_name)
+    @post = Post.new(title: params[:title], content: params[:content], user_id: user.id)
     puts  "  buytyctyfctrcyc#{@post}"
     @post.update(maker: user.first_name)
     @post.save
@@ -184,12 +194,12 @@ puts   @pageTitle2
     s.slice! ":"
     post = Post.find_by(id: s.to_i)
     post.destroy
-
     redirect "/profile"
   end
 
   post "/delete-user" do
     user = User.find_by(id: session[:user_id])
+
     user.destroy
     session.clear
     redirect "/"
