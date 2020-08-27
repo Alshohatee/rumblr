@@ -1,4 +1,4 @@
-# Pokedex
+# Rumblr
 
 ![Project Image](/public/LiveImage.png)
 
