@@ -1,4 +1,7 @@
 GEM
+  specs:
+
+GEM
   remote: https://rubygems.org/
   specs:
     activemodel (6.0.2.1)
@@ -23,11 +26,11 @@ GEM
     multi_json (1.14.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nio4r (2.5.2)
+    nio4r (2.5.8)
     pg (1.2.1)
     pony (1.13.1)
       mail (>= 2.0)
-    puma (4.3.1)
+    puma (4.3.9)
       nio4r (~> 2.0)
     rack (2.0.8)
     rack-protection (2.0.8.1)
